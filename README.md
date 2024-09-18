@@ -1,1 +1,1 @@
-![alt text](img/1.bmp)
+![img](1.bmp)
