@@ -1,4 +1,4 @@
-
+Ôªø
 #include "readBMP.h"
 
 ReaderBMP::ReaderBMP() : file(), fileHeader{}, infoHeader{}, data(nullptr) {}
@@ -36,21 +36,21 @@ void ReaderBMP::displayBMP() {
     int width = infoHeader.biWidth;
     int height = infoHeader.biHeight;
     int bytesPerPixel = infoHeader.biBitCount / 8;
-    // ¬ ÙÓÏ‡ÚÂ BMP Í‡Ê‰‡ˇ ÒÚÓÍ‡ ÔËÍÒÂÎÂÈ ‰ÓÎÊÌ‡ ·˚Ú¸ ‚˚Ó‚ÌÂÌ‡ ÔÓ 4 ·‡ÈÚ‡
-    // ÂÒÎË ‰ÎËÌ‡ ÒÚÓÍË ÔËÍÒÂÎÂÈ ‚ ·‡ÈÚ‡ı ÌÂ Í‡ÚÌ‡ 4, ÚÓ Í ÍÓÌˆÛ ÒÚÓÍË 
-    // ‰Ó·‡‚Îˇ˛ÚÒˇ ·‡ÈÚ˚ ÓÚÒÚÛÔÓ‚ (padding), ˜ÚÓ·˚ Ó·˘‡ˇ ‰ÎËÌ‡ ÒÚÓÍË ÒÚ‡Î‡ Í‡ÚÌÓÈ 4.
+    // –í —Ñ–æ—Ä–º–∞—Ç–µ BMP –∫–∞–∂–¥–∞—è —Å—Ç—Ä–æ–∫–∞ –ø–∏–∫—Å–µ–ª–µ–π –¥–æ–ª–∂–Ω–∞ –±—ã—Ç—å –≤—ã—Ä–æ–≤–Ω–µ–Ω–∞ –ø–æ 4 –±–∞–π—Ç–∞
+    // –µ—Å–ª–∏ –¥–ª–∏–Ω–∞ —Å—Ç—Ä–æ–∫–∏ –ø–∏–∫—Å–µ–ª–µ–π –≤ –±–∞–π—Ç–∞—Ö –Ω–µ –∫—Ä–∞—Ç–Ω–∞ 4, —Ç–æ –∫ –∫–æ–Ω—Ü—É —Å—Ç—Ä–æ–∫–∏ 
+    // –¥–æ–±–∞–≤–ª—è—é—Ç—Å—è –±–∞–π—Ç—ã –æ—Ç—Å—Ç—É–ø–æ–≤ (padding), —á—Ç–æ–±—ã –æ–±—â–∞—è –¥–ª–∏–Ω–∞ —Å—Ç—Ä–æ–∫–∏ —Å—Ç–∞–ª–∞ –∫—Ä–∞—Ç–Ω–æ–π 4.
     int padding = (4 - (width * bytesPerPixel) % 4) % 4;
-    // width * bytesPerPixel ----  ·‡ÈÚ ‰Îˇ ı‡ÌÂÌËˇ Ó‰ÌÓÈ ÒÚÓÍË ÔËÍÒÂÎÂÈ
-    // (4 - (width * bytesPerPixel) % 4) ---- ·‡ÈÚ ‰Îˇ ‚˚‡‚ÌË‚‡ÌËˇ ÒÚÓÍË ÔÓ 4 ·‡ÈÚ‡
-    // (4 - (width * bytesPerPixel) % 4) % 4 ---- ËÁ·ÂÊ‡Ú¸ ÒÎÛ˜‡ˇ, ÍÓ„‰‡ ÓÒÚ‡ÚÓÍ ‡‚ÂÌ 0
+    // width * bytesPerPixel ----  –±–∞–π—Ç –¥–ª—è —Ö—Ä–∞–Ω–µ–Ω–∏—è –æ–¥–Ω–æ–π —Å—Ç—Ä–æ–∫–∏ –ø–∏–∫—Å–µ–ª–µ–π
+    // (4 - (width * bytesPerPixel) % 4) ---- –±–∞–π—Ç –¥–ª—è –≤—ã—Ä–∞–≤–Ω–∏–≤–∞–Ω–∏—è —Å—Ç—Ä–æ–∫–∏ –ø–æ 4 –±–∞–π—Ç–∞
+    // (4 - (width * bytesPerPixel) % 4) % 4 ---- –∏–∑–±–µ–∂–∞—Ç—å —Å–ª—É—á–∞—è, –∫–æ–≥–¥–∞ –æ—Å—Ç–∞—Ç–æ–∫ —Ä–∞–≤–µ–Ω 0
 
-    for (int y = height - 1; y >= 0; --y) { //˝ÍÒÔÂËÏÂÌÚ‡Î¸Ì˚Ï ÔÛÚÂÏ ‚˚ˇÒÌÂÌÓ 
-        //BMP ÙÓÏ‡Ú ı‡ÌËÚ ÒÚÓÍË ÔËÍÒÂÎÂÈ ‚ Ó·‡ÚÌÓÏ ÔÓˇ‰ÍÂ (ÒÌËÁÛ ‚‚Âı)
+    for (int y = height - 1; y >= 0; --y) { //—ç–∫—Å–ø–µ—Ä–∏–º–µ–Ω—Ç–∞–ª—å–Ω—ã–º –ø—É—Ç–µ–º –≤—ã—è—Å–Ω–µ–Ω–æ 
+        //BMP —Ñ–æ—Ä–º–∞—Ç —Ö—Ä–∞–Ω–∏—Ç —Å—Ç—Ä–æ–∫–∏ –ø–∏–∫—Å–µ–ª–µ–π –≤ –æ–±—Ä–∞—Ç–Ω–æ–º –ø–æ—Ä—è–¥–∫–µ (—Å–Ω–∏–∑—É –≤–≤–µ—Ä—Ö)
         for (int x = 0; x < width; ++x) {
             int index = (y * (width * bytesPerPixel + padding) + x * bytesPerPixel);
-            // width * bytesPerPixel + padding ---- ·‡ÈÚ ‰Îˇ ı‡ÌÂÌËˇ Ó‰ÌÓÈ ÒÚÓÍË ÔËÍÒÂÎÂÈ Ò Û˜ÂÚÓÏ ÓÚÒÚÛÔÓ‚
-            // y * (width * bytesPerPixel + padding) ---- ·‡ÈÚ ‰Îˇ ı‡ÌÂÌËˇ ‚ÒÂı ÒÚÓÍ ÔËÍÒÂÎÂÈ ‰Ó ÚÂÍÛ˘ÂÈ ÒÚÓÍË
-            // x * bytesPerPixel ---- ·‡ÈÚ ‰Îˇ ı‡ÌÂÌËˇ ÔËÍÒÂÎÂÈ ‚ ÚÂÍÛ˘ÂÈ ÒÚÓÍÂ ‰Ó ÚÂÍÛ˘Â„Ó ÔËÍÒÂÎˇ
+            // width * bytesPerPixel + padding ---- –±–∞–π—Ç –¥–ª—è —Ö—Ä–∞–Ω–µ–Ω–∏—è –æ–¥–Ω–æ–π —Å—Ç—Ä–æ–∫–∏ –ø–∏–∫—Å–µ–ª–µ–π —Å —É—á–µ—Ç–æ–º –æ—Ç—Å—Ç—É–ø–æ–≤
+            // y * (width * bytesPerPixel + padding) ---- –±–∞–π—Ç –¥–ª—è —Ö—Ä–∞–Ω–µ–Ω–∏—è –≤—Å–µ—Ö —Å—Ç—Ä–æ–∫ –ø–∏–∫—Å–µ–ª–µ–π –¥–æ —Ç–µ–∫—É—â–µ–π —Å—Ç—Ä–æ–∫–∏
+            // x * bytesPerPixel ---- –±–∞–π—Ç –¥–ª—è —Ö—Ä–∞–Ω–µ–Ω–∏—è –ø–∏–∫—Å–µ–ª–µ–π –≤ —Ç–µ–∫—É—â–µ–π —Å—Ç—Ä–æ–∫–µ –¥–æ —Ç–µ–∫—É—â–µ–≥–æ –ø–∏–∫—Å–µ–ª—è
 
             unsigned char blue = data[index];
             unsigned char green = data[index + 1];
@@ -77,12 +77,12 @@ void ReaderBMP::readFileHeader() {
     if (fileHeader.bfType != 0x4D42) { //BitMap
         throw std::runtime_error(" Unsupported format");
     }
-}//‡‡‡‡‡‡‡‡‡‡‡ÔÔÔÔÙ‚‡˚‚Ô‡
+}//–∞–∞–∞–∞–∞–∞–∞–∞–∞–∞–∞–ø–ø–ø–ø—Ñ–≤–∞—ã–≤–ø–∞
 
 void ReaderBMP::readInfoHeader() {
     file.read(reinterpret_cast<char*>(&infoHeader), sizeof(infoHeader));
     std::cout << " BMP format " + std::to_string(infoHeader.biBitCount) + '\n';
-    if (infoHeader.biBitCount != 24 && infoHeader.biBitCount != 32) { // 24 Ë 32 ·ËÚ
+    if (infoHeader.biBitCount != 24 && infoHeader.biBitCount != 32) { // 24 –∏ 32 –±–∏—Ç
         throw std::runtime_error(" Unsupported BMP format " + std::to_string(infoHeader.biBitCount));
     }
 }
