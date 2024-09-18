@@ -4,11 +4,6 @@
 int main(int argc, char* argv[])
 {
 
-    //1.bmp --- 24 bit, correct
-    //2.bmp --- 24 bit, correct
-    //3.bmp --- 4 bit, uncorrect
-
-
     try {
         if (argc != 2) {
             throw std::invalid_argument(" Incorrect usage. Usage (example): " + std::string(argv[0]) + " C:\\dev\\1.bmp");
