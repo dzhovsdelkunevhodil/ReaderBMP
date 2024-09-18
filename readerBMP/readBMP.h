@@ -1,10 +1,10 @@
 #pragma once
-#pragma once
 #include <Windows.h>
 #include <iostream>
 #include <fstream>
 #include <string>
 
+//описание BMP
 //https://jenyay.net/Programming/Bmp?ysclid=m187ni1h3q420129536
 
 
@@ -18,7 +18,9 @@ public:
 	void displayBMP();
 	void closeBMP();
 	void openBMP(const std::string& filePath);
+
 private:
+
 	void readFileHeader();
 	void readInfoHeader();
 	void readImageData();

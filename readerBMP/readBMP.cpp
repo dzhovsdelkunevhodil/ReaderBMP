@@ -63,13 +63,12 @@ void ReaderBMP::displayBMP() {
                 std::cout << '.';
             }
             else {
-                std::cout << '?';
-                //throw std::runtime_error(" Unsupported color at (" + std::to_string(x) + ", " + std::to_string(y) + ")");
+                //std::cout << '?';
+                throw std::runtime_error(" Unsupported color at (" + std::to_string(x) + ", " + std::to_string(y) + ")");
             }
         }
         std::cout << std::endl;
     }
-
 }
 
 void ReaderBMP::readFileHeader() {
@@ -77,7 +76,7 @@ void ReaderBMP::readFileHeader() {
     if (fileHeader.bfType != 0x4D42) { //BitMap
         throw std::runtime_error(" Unsupported format");
     }
-}//аааааааааааппппфваывпа
+}
 
 void ReaderBMP::readInfoHeader() {
     file.read(reinterpret_cast<char*>(&infoHeader), sizeof(infoHeader));

@@ -1,6 +1,4 @@
 ﻿
-
-
 #include "readBMP.h"
 
 int main(int argc, char* argv[])
